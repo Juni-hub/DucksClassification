@@ -1,1 +1,1 @@
-# DucksClassification
+# Ducks Classification
