@@ -3,6 +3,7 @@ import numpy as np
 import PIL
 import tensorflow as tf
 import csv
+import pandas as pd
 
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -66,7 +67,7 @@ history = model.fit(
 )
 
 results = []
-with open('test_images_path.csv', newline='') as csvfile:
+with open('./data/test_images_path.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         image_path = "./data/test_images" + row['image_path']
@@ -77,8 +78,10 @@ with open('test_images_path.csv', newline='') as csvfile:
         predictions = model.predict(img_array)
         score = tf.nn.softmax(predictions[0])
         
-        results.append({'id': row['id'], 'label': predicted_label})
+        results.append({'id': row['id'], 'label': class_names[np.argmax(score)]})
         
+df_results = pd.DataFrame(results)
+df_results.to_csv('image_predictions.csv', index=False)
 
 
 

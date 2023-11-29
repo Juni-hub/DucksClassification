@@ -2,18 +2,18 @@ import numpy as np;
 import os;
 import csv;
 
-a = np.load('class_names.npy', allow_pickle=True);
+a = np.load('class_names.npy', allow_pickle=True)
 a_swap = {v: k for k, v in a[()].items()}
 
 for key in a_swap:
-    os.mkdir('./train_images/' + a_swap[key])
+    os.mkdir('./train_images/' + str(key))
 
-n = 1;
+n = 1
 with open('train_images.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        folder = a_swap[int(row['label'])]
-        os.rename("./train_images" + row['image_path'], "./train_images/" + folder + '/' + str(n) + '.jpg')
+        folder = row['label']
+        os.rename("./train_images" + row['image_path'], "./train_images/" + str(folder) + '/' + str(n) + '.jpg')
         n += 1
     
 
