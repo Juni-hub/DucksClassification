@@ -7,7 +7,9 @@ import pandas as pd
 
 from tensorflow import keras
 from tensorflow.keras import layers
+from tensorflow.keras import regularizers
 from tensorflow.keras.models import Sequential
+
 
 
 # PIL.Image.open(str("./data/train_images/001.Black_footed_Albatross/1.jpg"))
