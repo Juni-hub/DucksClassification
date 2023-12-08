@@ -7,7 +7,6 @@ import pandas as pd
 
 from tensorflow import keras
 from tensorflow.keras import layers
-from tensorflow.keras import regularizers
 from tensorflow.keras.models import Sequential
 
 
@@ -123,3 +122,6 @@ history = model.fit(
         
 # df_results = pd.DataFrame(results)
 # df_results.to_csv('image_predictions.csv', index=False)
+
+
+
