@@ -2,9 +2,10 @@ import numpy as np;
 import os;
 import csv;
 
-a = np.load('class_names.npy', allow_pickle=True)
+a = np.load('data/class_names.npy', allow_pickle=True)
+print('a', a)
 a_swap = {v: k for k, v in a[()].items()}
-
+print('aSWAP', a_swap)
 for key in a_swap:
     os.mkdir('./train_images/' + str(key))
 
